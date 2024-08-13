@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://i.ibb.co/qjbny7h/module-of-inquiry-1.png" alt="Logo"> <!-- เปลี่ยน URL เป็นโลโก้ของคุณ -->
+            <h1>Matthayom 6/5 System</h1>
+        </div>
+    </header>
+
+    <div class="file-system">
+        <ul class="file-list">
+            <li class="folder" data-folder="folder1">Folder 1
+                <ul class="file-list" id="folder1">
+                    <li class="file"><a href="File 1.txt">File 1.txt</a></li>
+                    <li class="file"><a href="File 2.txt">File 2.txt</a></li>
+                </ul>
+            </li>
+            <li class="folder" data-folder="folder2">Folder 2
+                <ul class="file-list" id="folder2">
+                    <li class="file"><a href="File 3.txt">File 3.txt</a></li>
+                    <li class="file"><a href="File 4.txt">File 4.txt</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="watermark">
+        <img src="https://i.ibb.co/qjbny7h/module-of-inquiry-1.png" alt="Watermark"> <!-- เปลี่ยน URL เป็นลายน้ำของคุณ -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var folders = document.querySelectorAll('.folder');
+
+            folders.forEach(function(folder) {
+                folder.addEventListener('click', function() {
+                    this.classList.toggle('open');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo img {
+    height: 40px; /* ปรับขนาดโลโก้ตามต้องการ */
+    margin-right: 10px;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #ff6300;
+}
+
+.file-system {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.file-list {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.file-list .folder > ul {
+    display: none;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.file-list .folder::before {
+    content: "\1F4C1"; /* Folder icon */
+    margin-right: 10px;
+}
+
+.file-list .file::before {
+    content: "\1F4C4"; /* File icon */
+    margin-right: 10px;
+}
+
+.folder.open > ul {
+    display: block;
+}
+
+.watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1; /* ปรับความโปร่งใสของลายน้ำ */
+    pointer-events: none; /* ให้คลิกผ่านลายน้ำได้ */
+}
+
+.watermark img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+</style>
