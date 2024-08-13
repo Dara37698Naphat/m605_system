@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #ff6300;
+}
+
+.clock {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    z-index: 1000; /* นำหน้าส่วนอื่น */
+}
+
+.file-system {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.file-list {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.file-list .folder > ul {
+    display: none;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.file-list .folder::before {
+    content: "\1F4C1"; /* Folder icon */
+    margin-right: 10px;
+}
+
+.file-list .file::before {
+    content: "\1F4C4"; /* File icon */
+    margin-right: 10px;
+}
+
+.folder.open > ul {
+    display: block;
+}
+
+.watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.watermark img {
+    max-width: 100%;
+    max-height: 100%;
+}
